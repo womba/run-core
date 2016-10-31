@@ -1,0 +1,26 @@
+#!/bin/sh
+
+DIR="$( cd  "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+MainDIR="$(dirname $DIR)"
+MainDIR="$(dirname $MainDIR)"
+ExteDIR="$(echo $MainDIR/extensions.d)"
+
+export Type=user
+
+source $MainDIR/ressources.d/variables
+
+Autostart="$(get_var Autostart)"
+
+
+
+
+if [ !  "$Autostart" == "true" ]; then
+	
+	mkdir -p $HOME/.config/autostart
+        cp $ExteDIR/autostart.desktop $HOME/.config/autostart
+        write_var Autostart true
+
+fi
+
+
+

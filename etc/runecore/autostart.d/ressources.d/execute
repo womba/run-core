@@ -1,0 +1,16 @@
+DIR="$( cd  "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+ExecuteDIR="$(dirname $DIR)/run.d"
+
+
+ITEMS="$(ls $ExecuteDIR)"
+
+for item in $ITEMS
+do
+	
+	$ExecuteDIR/$item &
+
+done
+
+
+

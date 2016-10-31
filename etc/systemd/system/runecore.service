@@ -1,0 +1,10 @@
+[Unit]
+Description=runecore
+
+[Service]
+Typ=forking
+ExecStart=/etc/runecore/service.sh
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=RuneCore
+Exec=/etc/runecore/autostart.d/ressources.d/execute
+Type=Application
+

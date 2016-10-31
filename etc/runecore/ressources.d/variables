@@ -1,0 +1,83 @@
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+
+if [ ! "$Type" = "user" ]
+then
+
+
+	ConfigPath=$DIR/config
+	
+	
+else
+
+	ConfigPath=$HOME/.config/rune/config
+
+	if [ ! -f "$ConfigPath" ]
+	then
+		echo Config=true > $ConfigPath
+	fi
+
+fi
+
+
+
+
+##########################################
+#	Get existing Variable
+
+
+function get_var {
+
+grep $1 $ConfigPath | sed 's/.*=//'
+
+}
+
+##########################################
+
+
+##########################################
+#	Erase existing Variable
+
+function erase_var {
+
+
+	Line=$(grep -n $1\= $ConfigPath | cut -f1 -d":")
+
+	if [ ! "$Line" = "" ] 
+	then
+		sed -i $Line\D $ConfigPath
+	fi
+
+}
+
+##########################################
+
+
+##########################################
+#	Write new Variable
+
+function write_var {
+
+
+        Line=$(grep -n $1\= $ConfigPath | cut -f1 -d":")
+
+        if [ ! "$Line" = "" ]
+        then
+                sed -i $Line\D $ConfigPath
+        fi
+	
+
+	echo $1=$2 >> $ConfigPath
+
+
+
+
+}
+
+##########################################
+
+
+
+
+

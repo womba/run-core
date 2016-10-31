@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+DIR="$( cd  "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+FOLDER=$HOME/.config/rune
+
+
+if [ ! -d "$FOLDER" ]; then
+	mkdir -p $FOLDER
+fi
+
+run-parts  $DIR/login.d/
+
