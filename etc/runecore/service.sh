@@ -35,6 +35,6 @@ runlogin &
 
 runsystem &
 
-sleep 2
+sleep 4
 
 done
